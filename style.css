@@ -227,3 +227,13 @@ body {
 .chat .chat-message {
     padding: 20px
 }
+
+
+i.fa-plus-circle {
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+.select-file {
+    display: none;
+}

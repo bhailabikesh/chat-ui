@@ -16,13 +16,13 @@
     
     <!-- MAIN SECTION -->
    <div class="container">
-       <div class="row clearfix">
+       <div class="clearfix row">
            <div class="col-lg-12">
                <div class="card chat-app">
                    <div class="chat">
-                       <div class="chat-header clearfix">
+                       <div class="clearfix chat-header">
                            <div class="row">
-                                <div class="chat-wrapper mx-1 mt-1">
+                                <div class="mx-1 mt-1 chat-wrapper">
                                     <span>A</span>
                                 </div>
                                 <div class="chat-about">
@@ -32,9 +32,9 @@
                            </div>
                        </div>
                        <div class="chat-history" id="messageBody">
-                            <ul class="m-b-0 overflow-auto">
+                            <ul class="overflow-auto m-b-0">
                                 <li class="clearfix">
-                                    <div class="message my-message float-right"> Hi Amit, how are you? How is the project coming along? </div>
+                                    <div class="float-right message my-message"> Hi Amit, how are you? How is the project coming along? </div>
                                 </li>
                                 <li class="clearfix">
                                     <div class="message other-message">Are we meeting today?</div>                                    
@@ -43,10 +43,10 @@
                                     <div class="message other-message">Project has been already finished and I have results to show you.</div>
                                 </li>
                                 <li class="clearfix">
-                                    <div class="message my-message float-right"> Ok Amit, the project coming along? </div>
+                                    <div class="float-right message my-message"> Ok Amit, the project coming along? </div>
                                 </li>
                                 <li class="clearfix">
-                                    <div class="message my-message float-right"> Hi Amit, how are you? How is the project coming along? </div>
+                                    <div class="float-right message my-message"> Hi Amit, how are you? How is the project coming along? </div>
                                 </li>
                                 <li class="clearfix">
                                     <div class="message other-message">Are we meeting today?</div>                                    
@@ -55,13 +55,18 @@
                                     <div class="message other-message">Project has been already finished and I have results to show you.</div>
                                 </li>
                                 <li class="clearfix">
-                                    <div class="message my-message float-right"> Ok Amit, the project coming along? </div>
+                                    <div class="float-right message my-message"> Ok Amit, the project coming along? </div>
                                 </li>
                             </ul>
                         </div>
-                        <div class="chat-message clearfix">
-                            <div class="input-group mb-0">
-                                
+                        <div class="clearfix chat-message">
+                            <div class="mb-0 input-group"> 
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa fa-plus-circle"></i>
+                                        <input type="file" class="select-file">
+                                    </span>
+                                </div> 
                                 <input type="text" class="form-control" placeholder="Enter text here..."> 
                                 <div class="input-group-prepend">
                                     <span class="input-group-text"><i class="fa fa-send"></i></span>
@@ -80,6 +85,15 @@
     <script>
         var messageBody = document.querySelector('#messageBody');
         messageBody.scrollTop = messageBody.scrollHeight - messageBody.clientHeight;
+
+        $("i.fa-plus-circle").click(function () {
+            $("input[type='file']").trigger('click');
+        });
+
+        $('input[type="file"]').on('change', function() {
+            var val = $(this).val();
+            $(this).siblings('span').text(val);
+        })
     </script>
 </body>
 </html>
